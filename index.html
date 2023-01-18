@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSV Editor</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="interface">
+    <h1>1. Insert your CSV File</h1>
+    <form name="Reader">
+      <input type="file" id="input" accept="text/csv">
+    </form>
+    <h1>2. Choose Method</h1>
+    <p class="tab">Woocommerce</p>
+    <p class="tab">Filter</p>
+    <p class="tab">Replace</p>
+    <p class="tab">PriceTiers</p>
+    <section id="Woocommerce">
+      <p>For importing products to Woocommerce.</p>
+    </section>
+    <section id="Filter">
+      <p>Only keep products that</p>
+      <select id="filter-have">
+        <option value="have">have</option>
+        <option value="not">don't have</option>
+      </select>
+      <p>the value</p>
+      <input type="text" id="filter-value" value="Shop">
+      <p>in the</p>
+      <select id="filter-column">
+        <option value="Internal Reference">Internal Reference</option>
+        <option value="Name">Product Name</option>
+        <option value="Product Key">Product Key</option>
+        <option value="Product Category">Product Category</option>
+        <option value="Brand">Brand</option>
+        <option value="Sales Description">Sales Description</option>
+        <option value="Short Description">Short Description</option>
+      </select>
+      <p>column.</p>
+    </section>
+    <section id="Replace">
+      <p>Replace</p>
+      <input type="text" id="replace-target" value="">
+      <p>with</p>
+      <input type="text" id="replace-value" value="">
+      <p>in the</p>
+      <select id="replace-column">
+        <option value="Internal Reference">Internal Reference</option>
+        <option value="Name">Product Name</option>
+        <option value="Product Key">Product Key</option>
+        <option value="Product Category">Product Category</option>
+        <option value="Brand">Brand</option>
+        <option value="Sales Description">Sales Description</option>
+        <option value="Short Description">Short Description</option>
+      </select>
+      <p>column.</p>
+    </section>
+    <section id="PriceTiers">
+      <p>For creating a table of PriceTiers. Only supported on Google Chrome.</p>
+    </section>
+    <h1>3. Download File</h1>
+    <div class="btn" onclick="read()">
+      <p>Download</p>
+    </div>
+  </div>
+  <script src="ponyfill.js"></script>
+  <script src="streamsaver.js"></script>
+  <script>
+    //import streamSaver from 'streamsaver'
+    //const streamSaver = require('streamsaver')
+    const streamSaver = window.streamSaver
+  </script>
+  <script src="papaparse.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
